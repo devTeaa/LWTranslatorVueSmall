@@ -43,6 +43,8 @@ input,
 select,
 button {
   margin: 8px 0;
+  min-width: 10vw;
+  max-width: 400px;
 }
 
 input,
@@ -63,13 +65,11 @@ textarea {
 select {
   padding: 8px;
   width: 100%;
-  max-width: 10vw;
 }
 
 button {
   padding: 12px;
-  min-width: 200px;
-  max-width: 10vw;
+  width: 100%;
   background-color: var(--main);
   color: var(--light);
   border-radius: 4px;
@@ -79,4 +79,15 @@ button {
 
 button:active {
   background-color: var(--mainDark);
+}
+
+@media (max-width: 998px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-2 {
+    grid-column: span 4;
+  }
 }
