@@ -15,7 +15,8 @@ const app = new Vue({
     yandexText: "",
     yandexResult: "",
     translateFrom: "",
-    translateTo: ""
+    translateTo: "",
+    formLoading: true
   },
   created() {
     this.translateFrom = "en";
@@ -23,6 +24,7 @@ const app = new Vue({
   },
   methods: {
     translate() {
+      this.formLoading = false;
       this.yandexLang = this.translateFrom + "-" + this.translateTo;
       fetch(
         "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20180830T015751Z.086151c8c24b9839.975644fa376940af82a85dc941091849c246182c&lang=" +
@@ -33,8 +35,12 @@ const app = new Vue({
         .then(responseFetch)
         .then(data => {
           this.yandexResult = data.text[0];
+          this.formLoading = true;
         })
-        .catch(error => console.log("Oops something happened!"));
+        .catch(error => {
+          alert(error);
+          this.formLoading = true;
+        });
     }
   }
 });

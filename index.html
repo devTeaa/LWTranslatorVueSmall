@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 
 <body>
     <div id="app" class="grid">
         <div class="grid-4 flexed centered">
-            <input type="text" v-model="yandexText" placeholder="Insert text here" />
+            <textarea type="text" v-model="yandexText" placeholder="Insert text here"></textarea>
         </div>
         <div class="grid-2 flexed-column centered">
             <select v-model="translateFrom">
@@ -20,7 +21,14 @@
                 <option value="ru">Russian</option>
                 <option value="id">Indonesian</option>
             </select>
-            <button v-bind:class='buttonClass' v-on:click="translate">Translate To</button>
+            <button v-bind:class="buttonClass" v-on:click="translate">
+                <span v-if="formLoading">
+                    Translate To
+                </span>
+                <span v-else>
+                    <i class="fas fa-spinner fa-spin"></i>
+                </span>
+            </button>
             <select v-model="translateTo">
                 <option value="en">English</option>
                 <option value="ru">Russian</option>
@@ -28,7 +36,7 @@
             </select>
         </div>
         <div class="grid-4 flexed centered">
-            <input type="text" v-model="yandexResult" placeholder="Results here">
+            <textarea type="text" v-model="yandexResult" placeholder="Results here" disabled></textarea>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>

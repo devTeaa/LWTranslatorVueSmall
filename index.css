@@ -1,56 +1,82 @@
 :root {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  --main: #007acc;
+  --mainDark: #005c99;
+  --light: #fefefe;
+  --dark: #333;
 }
 
 body {
-    height: 100vh;
-    box-sizing: border-box;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
 }
 
 .flexed {
-    display: flex;
+  display: flex;
 }
 
 .flexed-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .centered {
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .grid-2 {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 
 .grid-4 {
-    grid-column: span 4;
+  grid-column: span 4;
 }
 
-input, select, button {
-    margin: 8px 0;
+input,
+select,
+button {
+  margin: 8px 0;
 }
 
-input {
-    padding: 12px;
+input,
+textarea {
+  padding: 12px;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 200px;
+  box-sizing: border-box;
+}
+
+textarea {
+  font-family: inherit;
+  resize: none;
 }
 
 select {
-    padding: 8px;
-    width: auto;
-    max-width: 10vw;
+  padding: 8px;
+  width: 100%;
+  max-width: 10vw;
 }
 
 button {
-    padding: 8px;
-    width: 200px;
-    max-width: 10vw;
+  padding: 12px;
+  min-width: 200px;
+  max-width: 10vw;
+  background-color: var(--main);
+  color: var(--light);
+  border-radius: 4px;
+  outline: 0;
+  border: 0;
+}
+
+button:active {
+  background-color: var(--mainDark);
 }
